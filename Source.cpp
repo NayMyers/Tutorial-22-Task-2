@@ -31,14 +31,17 @@ int main()
 
 	//display and clear data structure 
 
+	int nodeValCount = 0;
 
 	while (pTop != nullptr)
 	{
 		cout << pTop->value << endl;
+		nodeValCount += pTop->value;
 		pNode = pTop;
 		pTop = pTop->pNext;
 		delete pNode;
 	}
 
+	cout << "Total of nodes: " << nodeValCount << endl;
 	return 0;
 }
