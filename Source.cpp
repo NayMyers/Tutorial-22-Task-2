@@ -17,17 +17,27 @@ public:
 
 int main()
 {
-	Node<int>* pNode = new Node<int>;
-	Node <int>* temp;
+	Node<int>* pTop = new Node<int>; // start of data structure allways points to top node 
+	pTop->value = 0; // assign value to inital node 
 
-	pNode->pNext = new Node<int>; // two node chain
-	
+	Node<int>* pNode = pTop; //will use pNode to build a data structure
 
-	while (pNode != nullptr)
+	for (int value = 1; value <= 5; value++)
 	{
-		temp = pNode; //make sure we don't lose refrence 
-		pNode = pNode->pNext;
-		delete temp;
+		pNode->pNext = new Node<int>; //add node 
+		pNode = pNode->pNext; //move to new node (pTop must remain pointing at start)
+		pNode->value = value; //set node value equal to count of for loop
+	}
+
+	//display and clear data structure 
+
+
+	while (pTop != nullptr)
+	{
+		cout << pTop->value << endl;
+		pNode = pTop;
+		pTop = pTop->pNext;
+		delete pNode;
 	}
 
 	return 0;
